@@ -5,8 +5,9 @@ set -euxo pipefail
 wget https://raw.githubusercontent.com/mmtk/mmtk-core/master/rust-toolchain
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
 /bin/sh -c ". ~/.cargo/env"
-sudo export RUSTUP_TOOLCHAIN=$(cat rust-toolchain) && /root/.cargo/bin/rustup toolchain install $RUSTUP_TOOLCHAIN
-sudo export RUSTUP_TOOLCHAIN=$(cat rust-toolchain) && /root/.cargo/bin/rustup target add i686-unknown-linux-gnu --toolchain $RUSTUP_TOOLCHAIN
+export RUSTUP_TOOLCHAIN=$(cat rust-toolchain)
+sudo /root/.cargo/bin/rustup toolchain install $RUSTUP_TOOLCHAIN
+sudo /root/.cargo/bin/rustup target add i686-unknown-linux-gnu --toolchain $RUSTUP_TOOLCHAIN
 PATH="/root/.cargo/bin:${PATH}"
 
 git clone https://github.com/mmtk/mmtk-core/
