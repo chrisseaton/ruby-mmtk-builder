@@ -44,7 +44,6 @@ sudo apt-get install -y autoconf bison
 export LD_LIBRARY_PATH=$PWD
 export MMTK_PLAN=MarkSweep
 export THIRD_PARTY_HEAP_LIMIT=10000000
-make miniruby -j
-export RUST_LOG=trace
-./miniruby -e 'puts "Hello world!"'
+make
+make install
 popd
