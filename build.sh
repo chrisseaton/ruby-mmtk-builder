@@ -10,14 +10,13 @@ then
   git clone https://github.com/mmtk/mmtk-core
   pushd mmtk-core
 else
-  git clone https://github.com/wks/mmtk-core
-  pushd mmtk-core
-  git checkout is_arbitrary_address_alloced
+  git clone https://github.com/mmtk/mmtk-core # https://github.com/wks/mmtk-core
+  pushd mmtk-configure
+  # Currently no difference
 fi
-export RUSTUP_TOOLCHAIN=$(cat rust-toolchain)
+export RUSTUP_TOOLCHAIN=nightly # $(cat rust-toolchain)
 rustup toolchain install $RUSTUP_TOOLCHAIN
-rustup target add i686-unknown-linux-gnu --toolchain $RUSTUP_TOOLCHAIN
-cargo build
+cargo +nightly build
 popd
 
 git clone https://github.com/mmtk/mmtk-ruby
