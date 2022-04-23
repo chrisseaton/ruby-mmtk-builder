@@ -20,7 +20,7 @@ git clone https://github.com/mmtk/mmtk-ruby
 pushd mmtk-ruby/mmtk
 sed -i 's/^mmtk =/#mmtk =/g' Cargo.toml
 cat ../../Cargo.toml.part >> Cargo.toml
-cargo +nightly build --release
+cargo +nightly build
 popd
 
 git clone https://github.com/mmtk/ruby
@@ -47,4 +47,5 @@ export MMTK_PLAN=MarkSweep
 export THIRD_PARTY_HEAP_LIMIT=100000000
 ruby --version
 
+export RUST_LOG=info
 ruby -e "puts 'Hello, World!'"
